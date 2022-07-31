@@ -6,13 +6,15 @@ $(document).ready(function () {
       info: false
     }
   );
-
+debugger
   const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
   });
 
   $('a').on("click", function (e) {
+    debugger
     if(params.id != 's'){
+      debugger
       e.preventDefault();
     }
   });
