@@ -19,4 +19,14 @@ debugger
     }
   });
 
+  const age = dateAgo('2022-04-28');
+
+  document.getElementById("age").innerText = age;
 });
+
+function dateAgo(date) {
+  var startDate = new Date(date);
+  var diffDate = new Date(new Date() - startDate);
+  return ((diffDate.toISOString().slice(0, 4) - 1970) + "Y " +
+      diffDate.getMonth() + "M " + (diffDate.getDate()-1) + "D");
+}
