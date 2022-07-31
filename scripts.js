@@ -11,7 +11,7 @@ debugger
     get: (searchParams, prop) => searchParams.get(prop),
   });
 
-  $('a').on("click", function (e) {
+  $('table a').on("click", function (e) {
     debugger
     if(params.id != 's'){
       debugger
