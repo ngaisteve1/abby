@@ -31,12 +31,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.0.0
       - name: Setup Pages
-        uses: actions/configure-pages@v4.0.0
+        uses: actions/configure-pages@v4.0.0      
       - name: Upload artifact
-        uses: actions/upload-artifact@v4.0.0
+        id: upload-artifact
+        uses: actions/upload-artifact@v4
         with:
-          # Upload entire repository
-          path: '.'
+          name: ${{ inputs.name }}
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: ${{ inputs.retention-days }}
+          if-no-files-found: error          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
