@@ -33,14 +33,14 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4.0.0      
       - name: Upload artifact
-        id: upload-artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ inputs.name }}
-          path: ${{ runner.temp }}/index.html
-          retention-days: ${{ inputs.retention-days }}
-          if-no-files-found: error          
+          name: my-artifact
+          path: |
+            index.html
+            scripts.js
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}              
         
